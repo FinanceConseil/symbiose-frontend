@@ -1,0 +1,295 @@
+/* ── Symbiose — Page Admin Statistiques ──────────────────────────────────── */
+
+#symbiose-admin-stats {
+    max-width: 1200px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ── Filtres de date ─────────────────────────────────────────────────────── */
+.symbiose-stats-filters {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 16px 0 24px;
+    flex-wrap: wrap;
+}
+
+.symbiose-stats-filters label {
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.symbiose-stats-filters input[type="date"],
+.symbiose-stats-filters select {
+    padding: 6px 10px;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    background: #fff;
+}
+
+.symbiose-stats-filters select {
+    min-width: 220px;
+    max-width: 340px;
+}
+
+.symbiose-stats-btn {
+    padding: 6px 16px;
+    background: #00b1b9;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.symbiose-stats-btn:hover { background: #009aa1; }
+.symbiose-stats-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ── Sections ────────────────────────────────────────────────────────────── */
+.symbiose-stats-section {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    margin-bottom: 24px;
+    overflow: hidden;
+}
+
+.symbiose-stats-section h2 {
+    margin: 0;
+    padding: 14px 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    background: #f0fbfc;
+    border-bottom: 1px solid #e0e0e0;
+    color: #007078;
+}
+
+/* ── Tableaux ────────────────────────────────────────────────────────────── */
+.symbiose-stats-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.symbiose-stats-table th {
+    padding: 10px 16px;
+    text-align: left;
+    font-weight: 600;
+    color: #50575e;
+    background: #f6f7f7;
+    border-bottom: 1px solid #e0e0e0;
+    white-space: nowrap;
+}
+
+.symbiose-stats-table th.num,
+.symbiose-stats-table td.num {
+    text-align: right;
+}
+
+.symbiose-stats-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #1d2327;
+}
+
+.symbiose-stats-table tbody tr:last-child td { border-bottom: none; }
+.symbiose-stats-table tbody tr:hover td { background: #f9fefe; }
+
+.symbiose-stats-empty {
+    padding: 24px 20px;
+    color: #8c8f94;
+    font-style: italic;
+    text-align: center;
+}
+
+/* ── Section pricing ─────────────────────────────────────────────────────── */
+.symbiose-stats-table input[type="number"] {
+    width: 110px;
+    padding: 4px 8px;
+    border: 1px solid #c3c4c7;
+    border-radius: 3px;
+    font-size: 0.8rem;
+}
+
+.symbiose-pricing-save-btn {
+    padding: 4px 12px;
+    background: #f0fbfc;
+    color: #007078;
+    border: 1px solid #00b1b9;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.symbiose-pricing-save-btn:hover { background: #00b1b9; color: #fff; }
+.symbiose-pricing-save-btn.saved { background: #edfaf1; color: #1e7e34; border-color: #1e7e34; }
+
+.symbiose-pricing-del-btn {
+    margin-left: 6px;
+    padding: 4px 10px;
+    background: #fcf0f1;
+    color: #c0392b;
+    border: 1px solid #e5b6b8;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+.symbiose-pricing-del-btn:hover { background: #c0392b; color: #fff; border-color: #c0392b; }
+
+.symbiose-pricing-add-form {
+    padding: 16px 20px;
+    border-top: 1px solid #e0e0e0;
+    background: #f9fefe;
+}
+.symbiose-pricing-add-form h3 {
+    margin: 0 0 10px;
+    font-size: 0.9rem;
+    color: #007078;
+    font-weight: 600;
+}
+.symbiose-pricing-add-fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+.symbiose-pricing-add-fields input,
+.symbiose-pricing-add-fields select {
+    padding: 6px 10px;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    flex: 1 1 160px;
+    min-width: 140px;
+}
+
+/* ── Badges unité (tokens / pages) ───────────────────────────────────────── */
+.symbiose-unit-badge {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    vertical-align: middle;
+    margin-left: 4px;
+}
+.symbiose-unit-tokens {
+    background: #e8f4ff;
+    color: #0073aa;
+    border: 1px solid #bee0f0;
+}
+.symbiose-unit-pages {
+    background: #fff3e0;
+    color: #c77700;
+    border: 1px solid #f5d89a;
+}
+
+/* ── État chargement / erreur ─────────────────────────────────────────────── */
+.symbiose-stats-loading {
+    padding: 32px;
+    text-align: center;
+    color: #8c8f94;
+}
+
+.symbiose-stats-error {
+    padding: 16px 20px;
+    background: #fcf0f1;
+    color: #c0392b;
+    border-top: 1px solid #f5c6cb;
+}
+
+/* ── Badges totaux ───────────────────────────────────────────────────────── */
+.symbiose-stats-totals {
+    display: flex;
+    gap: 16px;
+    padding: 12px 20px;
+    background: #f9fefe;
+    border-top: 1px solid #e0e0e0;
+    flex-wrap: wrap;
+}
+
+.symbiose-stats-total-item {
+    font-size: 0.8rem;
+    color: #50575e;
+}
+
+.symbiose-stats-total-item strong {
+    color: #007078;
+    font-size: 0.95rem;
+}
+
+/* ── Bandeau utilisateur actif ───────────────────────────────────────────── */
+.symbiose-user-banner[hidden] { display: none; }
+
+.symbiose-user-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 14px;
+    margin-bottom: 16px;
+    background: #e8f9fa;
+    border: 1px solid #b2e0e4;
+    border-radius: 5px;
+    font-size: 0.875rem;
+    color: #007078;
+    font-weight: 500;
+}
+
+/* ── KPI cards ───────────────────────────────────────────────────────────── */
+.symbiose-kpi-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px 20px;
+}
+
+.symbiose-kpi-card {
+    flex: 1 1 140px;
+    min-width: 120px;
+    padding: 14px 18px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.symbiose-kpi-card--highlight {
+    border-color: #00b1b9;
+    background: #f0fbfc;
+}
+
+.symbiose-kpi-value {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #007078;
+    margin-bottom: 4px;
+    white-space: nowrap;
+}
+
+.symbiose-kpi-label {
+    font-size: 0.75rem;
+    color: #70777f;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+/* ── Tableau coûts — colonne coût ($) ────────────────────────────────────── */
+.symbiose-stats-table td.cost {
+    font-variant-numeric: tabular-nums;
+    color: #1d6b50;
+    font-weight: 600;
+}
+
+/* ── Pied de tableau (total) ─────────────────────────────────────────────── */
+.symbiose-stats-table tfoot tr td {
+    padding: 10px 16px;
+    background: #f0fbfc;
+    border-top: 2px solid #c8eef0;
+    font-size: 0.875rem;
+}
