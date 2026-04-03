@@ -182,11 +182,6 @@ Configuration WordPress minimale :
 4. autoriser les roles WordPress voulus
 5. inserer le shortcode `[symbiose]` sur une page
 
-Compatibilite de transition :
-
-- les anciennes options WordPress `fcc_*` sont reprises automatiquement vers `symbiose_*`
-- l'ancien shortcode `[finance_conseil_chat]` reste accepte temporairement
-
 ## Frontend
 
 Le frontend n'est plus un script monolithique. `assets/chat.js` est le point d'entree ES module et orchestre les modules de `assets/js/`.

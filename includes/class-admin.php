@@ -35,7 +35,7 @@ class Symbiose_Admin {
         if ( 'settings_page_symbiose-stats' !== $hook ) {
             return;
         }
-        $secret = (string) symbiose_get_option( 'symbiose_jwt_secret', '' );
+        $secret = (string) get_option( 'symbiose_jwt_secret', '' );
         if ( empty( $secret ) ) {
             return;
         }
@@ -118,19 +118,19 @@ class Symbiose_Admin {
     // ── Rendus des champs ────────────────────────────────────────────────────
 
     public function field_backend_url(): void {
-        $value = esc_attr( (string) symbiose_get_option( 'symbiose_backend_url', 'http://localhost:3000' ) );
+        $value = esc_attr( (string) get_option( 'symbiose_backend_url', 'http://localhost:3000' ) );
         echo '<input type="url" id="symbiose_backend_url" name="symbiose_backend_url" value="' . $value . '" class="regular-text" placeholder="http://localhost:3000">';
         echo '<p class="description">' . esc_html__( 'URL de base du serveur Node.js (sans slash final).', 'symbiose' ) . '</p>';
     }
 
     public function field_jwt_secret(): void {
-        $value = esc_attr( (string) symbiose_get_option( 'symbiose_jwt_secret', '' ) );
+        $value = esc_attr( (string) get_option( 'symbiose_jwt_secret', '' ) );
         echo '<input type="password" id="symbiose_jwt_secret" name="symbiose_jwt_secret" value="' . $value . '" class="regular-text" autocomplete="new-password">';
         echo '<p class="description">' . esc_html__( 'Clé secrète partagée avec le backend pour signer les JWT HS256.', 'symbiose' ) . '</p>';
     }
 
     public function field_allowed_roles(): void {
-        $saved_roles = (array) symbiose_get_option( 'symbiose_allowed_roles', [ 'administrator' ] );
+        $saved_roles = (array) get_option( 'symbiose_allowed_roles', [ 'administrator' ] );
         $wp_roles    = wp_roles()->roles;
 
         echo '<select id="symbiose_allowed_roles" name="symbiose_allowed_roles[]" multiple size="' . count( $wp_roles ) . '" style="min-width:200px">';
@@ -153,7 +153,7 @@ class Symbiose_Admin {
     }
 
     private function get_backend_url(): string {
-        return rtrim( (string) symbiose_get_option( 'symbiose_backend_url', 'http://localhost:3000' ), '/' );
+        return rtrim( (string) get_option( 'symbiose_backend_url', 'http://localhost:3000' ), '/' );
     }
 
     private function build_admin_jwt( string $secret ): string {

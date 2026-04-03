@@ -45,7 +45,7 @@ class Symbiose_Shortcode {
         }
 
         // Clé secrète manquante
-        $secret = (string) symbiose_get_option( 'symbiose_jwt_secret', '' );
+        $secret = (string) get_option( 'symbiose_jwt_secret', '' );
         if ( empty( $secret ) ) {
             if ( current_user_can( 'manage_options' ) ) {
                 return '<div class="symbiose-notice symbiose-notice--warning">'
@@ -183,7 +183,7 @@ class Symbiose_Shortcode {
     // ── Autorisation ─────────────────────────────────────────────────────────
 
     private function is_user_allowed(): bool {
-        $allowed_roles = (array) symbiose_get_option( 'symbiose_allowed_roles', [ 'administrator' ] );
+        $allowed_roles = (array) get_option( 'symbiose_allowed_roles', [ 'administrator' ] );
 
         if ( empty( $allowed_roles ) ) {
             return false;
@@ -196,7 +196,7 @@ class Symbiose_Shortcode {
     }
 
     private function get_backend_url(): string {
-        return rtrim( (string) symbiose_get_option( 'symbiose_backend_url', 'http://localhost:3000' ), '/' );
+        return rtrim( (string) get_option( 'symbiose_backend_url', 'http://localhost:3000' ), '/' );
     }
 
     public function send_chat_csp_header(): void {
@@ -218,7 +218,7 @@ class Symbiose_Shortcode {
         }
 
         $content = (string) $post->post_content;
-        return $content && ( has_shortcode( $content, 'symbiose' ) || has_shortcode( $content, 'finance_conseil_chat' ) );
+        return $content && has_shortcode( $content, 'symbiose' );
     }
 
     private function build_chat_csp_policy(): string {
